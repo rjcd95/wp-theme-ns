@@ -12,7 +12,7 @@ This is a theme developed for WP WordPress Assessment using as starter theme [un
 
 ## Links
 * Plugin
-  * plugin Repository: [click here](wp-products-ns)
+  * plugin Repository: [click here](https://github.com/rjcd95/wp-products-ns/)
 * Web: [click here](http://ns-test.azurewebsites.net)
 
 ## Screnshots
