@@ -124,8 +124,8 @@ add_action( 'after_setup_theme', 'wpthemens_content_width', 0 );
 function wpthemens_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'wpthemens' ),
-			'id'            => 'sidebar-1',
+			'name'          => esc_html__( 'Footer', 'wpthemens' ),
+			'id'            => 'footer-widgets',
 			'description'   => esc_html__( 'Add widgets here.', 'wpthemens' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
@@ -177,4 +177,3 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-
