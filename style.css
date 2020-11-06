@@ -821,6 +821,10 @@ textarea {
     display: flex;
 }
 
+.nav-links a {
+    border-bottom: none;
+}
+
 .comment-navigation .nav-previous,
 .posts-navigation .nav-previous,
 .post-navigation .nav-previous {
