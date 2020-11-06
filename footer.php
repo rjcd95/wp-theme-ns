@@ -12,6 +12,10 @@
 ?>
     <!-- Footer -->
     <footer id="footer" class="wrapper style1-alt">
+        <?php
+            get_sidebar();
+        ?>
+
         <div class="inner">
             <ul class="footer-list">
                 <li>&copy; All rights reserved.</li>

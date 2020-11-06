@@ -882,12 +882,51 @@ textarea {
 /* Widgets
 --------------------------------------------- */
 
-.widget {
-    margin: 0 0 1.5em;
-}
-
 .widget select {
     max-width: 100%;
+}
+
+.widget {
+    margin: 1em;
+    display: inline-block;
+    vertical-align: text-top;
+    line-height: normal;
+}
+
+.widget ul {
+    padding: 0;
+}
+
+.widget span,
+.widget p,
+.widget h1,
+.widget h2,
+.widget h3,
+.widget h4,
+.widget h5 {
+    line-height: normal;
+    margin: 0.2em;
+    color: white;
+}
+
+.widget p {
+    padding-left: 0.5em;
+}
+
+.widget-hr {
+    margin: 0.5em 0;
+}
+
+.widget li {
+    list-style: none;
+    padding: 0;
+    padding-left: 0.5em;
+    color: white;
+}
+
+.widget li:hover {
+    color: #d7d7d7;
+    border-bottom: dotted 1px rgba(255, 255, 255, 0.35);
 }
 
 
@@ -1344,7 +1383,6 @@ a {
     -webkit-transition: color 0.2s ease, border-bottom-color 0.2s ease;
     -ms-transition: color 0.2s ease, border-bottom-color 0.2s ease;
     transition: color 0.2s ease, border-bottom-color 0.2s ease;
-    /* border-bottom: dotted 1px rgba(255, 255, 255, 0.35); */
     color: inherit;
     text-decoration: none;
 }
