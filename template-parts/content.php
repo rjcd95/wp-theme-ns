@@ -9,55 +9,25 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
+<?php
+	if ( is_singular() ) :
+	else :
+	?>
+	<section id="post-<?php the_ID(); ?>" class="wrapper style2 spotlights">
+		<a href="#" class="image"><img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="" data-position="center center" /></a>
+		<div class="content">
+			<div class="inner">
+				<?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>
+				<p><?php the_excerpt(); ?></p>
+				<ul class="actions">
+					<li><a href="<?php echo get_permalink();?>" class="button">Learn more</a></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	<?php
+	
+	endif;
 
-		if ( 'post' === get_post_type() ) :
-			?>
-			<div class="entry-meta">
-				<?php
-				wpthemens_posted_on();
-				wpthemens_posted_by();
-				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
+?>
 
-	<?php wpthemens_post_thumbnail(); ?>
-
-	<div class="entry-content">
-		<?php
-		the_content(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'wpthemens' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				wp_kses_post( get_the_title() )
-			)
-		);
-
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'wpthemens' ),
-				'after'  => '</div>',
-			)
-		);
-		?>
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php wpthemens_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
