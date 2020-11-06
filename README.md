@@ -26,14 +26,14 @@ This is a theme developed for WP WordPress Assessment using as starter theme [un
   
   ## Screnshots
   * Home page
-  ![Home Page](http://prntscr.com/vevfbe)
+  ![Home Page](https://i.ibb.co/d4TfF92/Home.png)
   * Post List
-  ![Post List](http://prntscr.com/vevfzn)
+  ![Post List](https://i.ibb.co/dcgqVPM/Post-List.png)
   * Post Detail
-  ![Post Detail Page](http://prntscr.com/vevh3i)
+  ![Post Detail Page](https://i.ibb.co/ccjMRMV/Post-Detail.png)
   * Page 
-  ![Page](http://prntscr.com/vevidc)
-  * Footer Widgets Sections
-  ![Footer Widgets Sections](http://prntscr.com/vevjgz)
+  ![Page](https://i.ibb.co/CwjYH0H/Page.png)
+  * Widgets Footer Sections
+  ![Widgets Footer Sections](https://i.ibb.co/wYML6kB/Widget-footer-section.png)
   * Mobile view
-  ![Footer Widgets Sections](http://prntscr.com/vevkbt)
+  ![Mobile View](https://i.ibb.co/RT4KFTD/Mobile-View.png)
