@@ -10,22 +10,20 @@
  */
 
 ?>
+    <!-- Footer -->
+    <footer id="footer" class="wrapper style1-alt">
+        <div class="inner">
+            <ul class="footer-list">
+                <li>&copy; All rights reserved.</li>
+                <li>
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'wpthemens' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'wpthemens' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'wpthemens' ), 'wpthemens', '<a href="https://github.com/rjcd95/">rjcd95</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+					<?php
+						printf( esc_html__( 'Theme developed by: %1$s'), '<a href="https://github.com/rjcd95/" target="_blank">rjcd95</a>' );
+					?>
+				</li>
+            </ul>
+        </div>
+    </footer>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

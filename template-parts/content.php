@@ -14,7 +14,7 @@
 	else :
 	?>
 	<section id="post-<?php the_ID(); ?>" class="wrapper style2 spotlights">
-		<a href="#" class="image"><img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="" data-position="center center" /></a>
+		<a href="<?php echo get_permalink();?>" class="image"><img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="" data-position="center center" /></a>
 		<div class="content">
 			<div class="inner">
 				<?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>
