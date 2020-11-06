@@ -16,12 +16,15 @@
 	<section id="main" class="wrapper">
 		<div class="inner">
 			<?php the_title( '<h1 class="major">', '</h1>' ); ?>
-			<span class="image fit"><img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="" /></span>			
+			<?php if (get_the_post_thumbnail_url()) : ?>
+				<span class="image fit"><img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="" /></span>
+			<?php endif; ?>
 			<div class="entry-content">
 				<?php
 				the_content();
 				?>
 			</div>
+		</div>
 	</section>
 
 </div>
