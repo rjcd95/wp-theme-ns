@@ -38,5 +38,3 @@
 		?>
 	</nav>
 </header>
-<!-- Wrapper -->
-<div id="wrapper">

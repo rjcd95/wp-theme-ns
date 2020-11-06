@@ -15,6 +15,21 @@
 get_header();
 ?>
 
+	<!-- Wrapper -->
+	<div id="wrapper">        
+	<!-- Intro -->
+		<section id="intro" class="wrapper style1 fullscreen fade-up">
+			<div class="inner">
+				<h1><?php bloginfo( 'name' ); ?></h1>
+				<?php
+				$_s_description = get_bloginfo( 'description', 'display' );
+				if ( $_s_description || is_customize_preview() ) :
+				?>
+					<p><?php echo $_s_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+				<?php endif; ?>
+			</div>
+		</section>
+	</div>
 	<main id="primary" class="site-main">
 
 		<?php
