@@ -24,7 +24,7 @@ This is a theme developed for WP WordPress Assessment using as starter theme [un
   * Categories: http://ns-test.azurewebsites.net/wp-json/wp/v2/taxonomies/category
   * Brands: http://ns-test.azurewebsites.net/wp-json/wp/v2/brand
   
-  ## Screnshots
+## Screnshots
   * Home page
   ![Home Page](https://i.ibb.co/d4TfF92/Home.png)
   * Post List
