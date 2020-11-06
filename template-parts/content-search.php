@@ -23,13 +23,13 @@
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php wpthemens_post_thumbnail(); ?>
-
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>
+		<a href="<?php echo get_permalink();?>" class="button">View</a>
 	</div><!-- .entry-summary -->
 
 	<footer class="entry-footer">
 		<?php wpthemens_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
+	<hr>
 </article><!-- #post-<?php the_ID(); ?> -->
