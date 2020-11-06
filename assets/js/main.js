@@ -6,185 +6,117 @@
 
 (function($) {
 
-	var	$window = $(window),
-		$body = $('body'),
-		$sidebar = $('#sidebar');
+    var $window = $(window),
+        $body = $('body'),
+        $sidebar = $('#sidebar');
 
-	// Breakpoints.
-		breakpoints({
-			xlarge:   [ '1281px',  '1680px' ],
-			large:    [ '981px',   '1280px' ],
-			medium:   [ '737px',   '980px'  ],
-			small:    [ '481px',   '736px'  ],
-			xsmall:   [ null,      '480px'  ]
-		});
+    // Breakpoints.
+    breakpoints({
+        xlarge: ['1281px', '1680px'],
+        large: ['981px', '1280px'],
+        medium: ['737px', '980px'],
+        small: ['481px', '736px'],
+        xsmall: [null, '480px']
+    });
 
-	// Hack: Enable IE flexbox workarounds.
-		if (browser.name == 'ie')
-			$body.addClass('is-ie');
+    // Hack: Enable IE flexbox workarounds.
+    if (browser.name == 'ie')
+        $body.addClass('is-ie');
 
-	// Play initial animations on page load.
-		$window.on('load', function() {
-			window.setTimeout(function() {
-				$body.removeClass('is-preload');
-			}, 100);
-		});
+    // Play initial animations on page load.
+    $window.on('load', function() {
+        window.setTimeout(function() {
+            $body.removeClass('is-preload');
+        }, 100);
+    });
 
-	// Forms.
+    // Forms.
 
-		// Hack: Activate non-input submits.
-			$('form').on('click', '.submit', function(event) {
+    // Hack: Activate non-input submits.
+    $('form').on('click', '.submit', function(event) {
 
-				// Stop propagation, default.
-					event.stopPropagation();
-					event.preventDefault();
+        // Stop propagation, default.
+        event.stopPropagation();
+        event.preventDefault();
 
-				// Submit form.
-					$(this).parents('form').submit();
+        // Submit form.
+        $(this).parents('form').submit();
 
-			});
+    });
 
-	// Sidebar.
-		if ($sidebar.length > 0) {
 
-			var $sidebar_a = $sidebar.find('a');
+    // Scrolly.
+    $('.scrolly').scrolly({
+        speed: 1000,
+        offset: function() {
 
-			$sidebar_a
-				.addClass('scrolly')
-				.on('click', function() {
+            // If <=large, >small, and sidebar is present, use its height as the offset.
+            if (breakpoints.active('<=large') &&
+                !breakpoints.active('<=small') &&
+                $sidebar.length > 0)
+                return $sidebar.height();
 
-					var $this = $(this);
+            return 0;
 
-					// External link? Bail.
-						if ($this.attr('href').charAt(0) != '#')
-							return;
+        }
+    });
 
-					// Deactivate all links.
-						$sidebar_a.removeClass('active');
+    // Spotlights.
+    $('.spotlights > section')
+        .scrollex({
+            mode: 'middle',
+            top: '-10vh',
+            bottom: '-10vh',
+            initialize: function() {
 
-					// Activate link *and* lock it (so Scrollex doesn't try to activate other links as we're scrolling to this one's section).
-						$this
-							.addClass('active')
-							.addClass('active-locked');
+                // Deactivate section.
+                $(this).addClass('inactive');
 
-				})
-				.each(function() {
+            },
+            enter: function() {
 
-					var	$this = $(this),
-						id = $this.attr('href'),
-						$section = $(id);
+                // Activate section.
+                $(this).removeClass('inactive');
 
-					// No section for this link? Bail.
-						if ($section.length < 1)
-							return;
+            }
+        })
+        .each(function() {
 
-					// Scrollex.
-						$section.scrollex({
-							mode: 'middle',
-							top: '-20vh',
-							bottom: '-20vh',
-							initialize: function() {
+            var $this = $(this),
+                $image = $this.find('.image'),
+                $img = $image.find('img'),
+                x;
 
-								// Deactivate section.
-									$section.addClass('inactive');
+            // Assign image.
+            $image.css('background-image', 'url(' + $img.attr('src') + ')');
 
-							},
-							enter: function() {
+            // Set background position.
+            if (x = $img.data('position'))
+                $image.css('background-position', x);
 
-								// Activate section.
-									$section.removeClass('inactive');
+            // Hide <img>.
+            $img.hide();
 
-								// No locked links? Deactivate all links and activate this section's one.
-									if ($sidebar_a.filter('.active-locked').length == 0) {
+        });
 
-										$sidebar_a.removeClass('active');
-										$this.addClass('active');
+    // Features.
+    $('.features')
+        .scrollex({
+            mode: 'middle',
+            top: '-20vh',
+            bottom: '-20vh',
+            initialize: function() {
 
-									}
+                // Deactivate section.
+                $(this).addClass('inactive');
 
-								// Otherwise, if this section's link is the one that's locked, unlock it.
-									else if ($this.hasClass('active-locked'))
-										$this.removeClass('active-locked');
+            },
+            enter: function() {
 
-							}
-						});
+                // Activate section.
+                $(this).removeClass('inactive');
 
-				});
-
-		}
-
-	// Scrolly.
-		$('.scrolly').scrolly({
-			speed: 1000,
-			offset: function() {
-
-				// If <=large, >small, and sidebar is present, use its height as the offset.
-					if (breakpoints.active('<=large')
-					&&	!breakpoints.active('<=small')
-					&&	$sidebar.length > 0)
-						return $sidebar.height();
-
-				return 0;
-
-			}
-		});
-
-	// Spotlights.
-		$('.spotlights > section')
-			.scrollex({
-				mode: 'middle',
-				top: '-10vh',
-				bottom: '-10vh',
-				initialize: function() {
-
-					// Deactivate section.
-						$(this).addClass('inactive');
-
-				},
-				enter: function() {
-
-					// Activate section.
-						$(this).removeClass('inactive');
-
-				}
-			})
-			.each(function() {
-
-				var	$this = $(this),
-					$image = $this.find('.image'),
-					$img = $image.find('img'),
-					x;
-
-				// Assign image.
-					$image.css('background-image', 'url(' + $img.attr('src') + ')');
-
-				// Set background position.
-					if (x = $img.data('position'))
-						$image.css('background-position', x);
-
-				// Hide <img>.
-					$img.hide();
-
-			});
-
-	// Features.
-		$('.features')
-			.scrollex({
-				mode: 'middle',
-				top: '-20vh',
-				bottom: '-20vh',
-				initialize: function() {
-
-					// Deactivate section.
-						$(this).addClass('inactive');
-
-				},
-				enter: function() {
-
-					// Activate section.
-						$(this).removeClass('inactive');
-
-				}
-			});
+            }
+        });
 
 })(jQuery);

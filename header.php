@@ -22,19 +22,43 @@
 
 <body class="is-preload" <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<!-- Header -->
-<header id="header">
-	<div class="site-title">
-		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="title" rel="home"><?php bloginfo( 'name' ); ?></a>
-	</div>
-	<nav>
-		<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-		?>
-	</nav>
-</header>
+
+<?php
+if ( is_front_page() && is_home() ) :
+	?>
+	<section id="sidebar">
+        <div class="inner">
+            <nav>
+			<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'menu-1',
+							'menu_id'        => 'primary-menu',
+						)
+					);
+				?>
+            </nav>
+        </div>
+    </section>
+	<?php
+else :
+	?>
+	<!-- Header -->
+	<header id="header">
+		<div class="site-title">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="title" rel="home"><?php bloginfo( 'name' ); ?></a>
+		</div>
+		<nav>
+			<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'menu-1',
+						'menu_id'        => 'primary-menu',
+					)
+				);
+			?>
+		</nav>
+	</header>
+	<?php
+endif;
+?>

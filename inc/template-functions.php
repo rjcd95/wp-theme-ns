@@ -14,12 +14,12 @@
 function wpthemens_body_classes( $classes ) {
 	// Adds a class of hfeed to non-singular pages.
 	if ( ! is_singular() ) {
-		$classes[] = 'hfeed';
+		$classes[] = 'hfeed is-preload';
 	}
 
 	// Adds a class of no-sidebar when there is no sidebar present.
 	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-		$classes[] = 'no-sidebar';
+		$classes[] = 'no-sidebar is-preload';
 	}
 
 	return $classes;
